@@ -83,14 +83,14 @@ public class CardDeliveryTest {
     @Test
     void shouldSendFormCityWithYo() {
         $("[data-test-id=city] input").setValue("Орёл");
-        $("[data-test-id=date] input").doubleClick().sendKeys(DataGenerator.generateDate(3, "dd.MM.yyyy"));
-        $("[data-test-id=name] input").setValue("Иван Иванов");
-        $("[data-test-id=phone] input").setValue("+79031234567");
+        $("[data-test-id=date] input").doubleClick().sendKeys(DataGenerator.generateDate(4, "dd.MM.yyyy"));
+        $("[data-test-id=name] input").setValue("Петр Попов");
+        $("[data-test-id=phone] input").setValue("+79991234567");
         $("[data-test-id=agreement]").click();
         $(By.className("button")).click();
 
         $(".notification__content")
-                .shouldHave(Condition.text("Встреча успешно забронирована на " + DataGenerator.generateDate(3, "dd.MM.yyyy")), Duration.ofSeconds(15))
+                .shouldHave(Condition.text("Встреча успешно забронирована на " + DataGenerator.generateDate(4, "dd.MM.yyyy")), Duration.ofSeconds(15))
                 .shouldBe(Condition.visible);
     }
 
